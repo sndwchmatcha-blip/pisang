@@ -17,14 +17,20 @@ const clickSound = document.getElementById("clickSound");
 
 let currentPage = 1;
 
-/* ================= INTRO ================= */
+/* ================= INTRO CINEMATIC ================= */
 setTimeout(() => {
   clickSound.play();
+
   intro.classList.add("light-on");
 
   setTimeout(() => {
-    intro.style.display = "none";
-    scene.classList.remove("hidden");
+    intro.style.opacity = "0";
+
+    setTimeout(() => {
+      intro.style.display = "none";
+      scene.classList.remove("hidden");
+    }, 2000);
+
   }, 1000);
 
 }, 2000);
@@ -33,85 +39,133 @@ setTimeout(() => {
 openBtn.onclick = () => {
   openSound.play();
 
-  bookClosed.classList.add("hidden");
-  bookOpen.classList.remove("hidden");
+  bookClosed.style.transform = "scale(0.8)";
+  bookClosed.style.opacity = "0";
 
-  // mulai musik dari detik 21
+  setTimeout(() => {
+    bookClosed.classList.add("hidden");
+    bookOpen.classList.remove("hidden");
+  }, 800);
+
+  // MUSIC FADE IN dari detik 21
   music.currentTime = 21;
+  music.volume = 0;
   music.play();
+
+  let fadeIn = setInterval(() => {
+    if (music.volume < 0.5) {
+      music.volume += 0.05;
+    } else {
+      clearInterval(fadeIn);
+    }
+  }, 200);
 
   loadPage1();
 };
 
+/* ================= TYPE EFFECT ================= */
+function typeText(element, text, speed = 35) {
+  element.innerHTML = "";
+  let i = 0;
+
+  let interval = setInterval(() => {
+    element.innerHTML += text.charAt(i);
+    i++;
+    if (i >= text.length) {
+      clearInterval(interval);
+    }
+  }, speed);
+}
+
 /* ================= PAGE 1 ================= */
 function loadPage1() {
   page1.innerHTML = `
-    <div class="handwriting" id="text1">
-      Selamat ulang tahun, kamu yang selalu berhasil membuat hariku lebih berarti.
-      Kehadiranmu sederhana, tapi rasanya begitu besar di hidupku.
-    </div>
+    <div class="handwriting" id="text1"></div>
     <img src="assets/foto1.jpg" class="love-img" id="img1">
   `;
 
+  const text =
+`Selamat ulang tahun, kamu yang selalu hadir dengan cara yang sederhana,
+tapi mampu membuat semuanya terasa lebih berarti.
+
+Aku mungkin tidak selalu mengungkapkan semuanya,
+tapi percayalah… kamu adalah bagian yang paling ingin aku jaga.`;
+
+  const el = document.getElementById("text1");
+
   setTimeout(() => {
-    document.getElementById("text1").classList.add("show");
+    el.classList.add("show-text");
+    typeText(el, text);
   }, 500);
 
   setTimeout(() => {
-    document.getElementById("img1").classList.add("show");
-  }, 2000);
+    document.getElementById("img1").classList.add("show-img");
+  }, 4000);
 
   setTimeout(() => {
     nextBtn.classList.remove("hidden");
-  }, 3500);
+  }, 6000);
 }
 
 /* ================= PAGE 2 ================= */
 function loadPage2() {
   page2.innerHTML = `
-    <div class="handwriting" id="text2">
-      Aku mungkin bukan yang sempurna, tapi aku selalu ingin ada untukmu.
-      Di setiap langkahmu, aku ingin jadi bagian kecil yang selalu kamu ingat.
-    </div>
+    <div class="handwriting" id="text2"></div>
     <img src="assets/foto2.jpg" class="love-img" id="img2">
   `;
 
+  const text =
+`Bersamamu, aku belajar bahwa kebahagiaan itu bukan tentang hal besar,
+tapi tentang siapa yang ada di samping kita.
+
+Terima kasih sudah tetap ada,
+di saat aku mungkin tidak selalu mudah untuk dipahami.`;
+
+  const el = document.getElementById("text2");
+
   setTimeout(() => {
-    document.getElementById("text2").classList.add("show");
+    el.classList.add("show-text");
+    typeText(el, text);
   }, 500);
 
   setTimeout(() => {
-    document.getElementById("img2").classList.add("show");
-  }, 2000);
+    document.getElementById("img2").classList.add("show-img");
+  }, 4000);
 
   setTimeout(() => {
     nextBtn.classList.remove("hidden");
-  }, 3500);
+  }, 6000);
 }
 
 /* ================= PAGE 3 ================= */
 function loadPage3() {
   page3.innerHTML = `
-    <div class="handwriting" id="text3">
-      Semoga semua hal baik selalu menemukan jalan ke kamu.
-      Semoga kamu selalu diberi kebahagiaan, kesehatan, dan mimpi-mimpi yang tercapai.
-      
-      Dan kalau boleh aku berharap...
-      semoga aku tetap jadi bagian dari cerita indahmu.
-    </div>
+    <div class="handwriting" id="text3"></div>
   `;
 
+  const text =
+`Semoga semua yang kamu impikan,
+perlahan menemukan jalannya.
+
+Semoga kamu selalu dikelilingi hal-hal baik,
+dan tidak pernah merasa sendirian.
+
+Dan kalau aku boleh berharap...
+aku ingin tetap jadi bagian dari cerita panjangmu.`;
+
+  const el = document.getElementById("text3");
+
   setTimeout(() => {
-    document.getElementById("text3").classList.add("show");
+    el.classList.add("show-text");
+    typeText(el, text);
   }, 500);
 
   setTimeout(() => {
-    // setelah selesai → tutup buku + lampu mati
-    setTimeout(closeScene, 2000);
-  }, 4000);
+    setTimeout(closeScene, 2500);
+  }, 6000);
 }
 
-/* ================= NEXT BUTTON ================= */
+/* ================= NEXT ================= */
 nextBtn.onclick = () => {
   clickSound.play();
   nextBtn.classList.add("hidden");
@@ -129,25 +183,30 @@ nextBtn.onclick = () => {
   }
 };
 
-/* ================= END ================= */
+/* ================= END CINEMATIC ================= */
 function closeScene() {
-  music.volume = 0.5;
 
-  let fade = setInterval(() => {
+  // FADE OUT MUSIC
+  let fadeOut = setInterval(() => {
     if (music.volume > 0.05) {
       music.volume -= 0.05;
     } else {
       music.pause();
-      clearInterval(fade);
+      clearInterval(fadeOut);
     }
   }, 200);
 
-  bookOpen.classList.add("hidden");
-  bookClosed.classList.remove("hidden");
-
-  scene.classList.add("light-off");
+  bookOpen.style.opacity = "0";
 
   setTimeout(() => {
-    clickSound.play();
-  }, 1000);
+    bookOpen.classList.add("hidden");
+    bookClosed.classList.remove("hidden");
+
+    scene.classList.add("light-off");
+
+    setTimeout(() => {
+      clickSound.play();
+    }, 1500);
+
+  }, 1500);
   }

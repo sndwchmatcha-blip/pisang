@@ -89,11 +89,15 @@ async function typeWriter(target,text,speed=38){
 
     cursor.className="cursor";
 
+    const container=target.parentElement;
+
     for(let i=0;i<text.length;i++){
 
         target.innerHTML=text.substring(0,i+1);
 
         target.appendChild(cursor);
+
+        container.scrollTop=container.scrollHeight;
 
         if(text[i]===","||text[i]==="."||text[i]==="\n"){
 
@@ -106,6 +110,10 @@ async function typeWriter(target,text,speed=38){
         }
 
     }
+
+    cursor.remove();
+
+}
 
     cursor.remove();
 

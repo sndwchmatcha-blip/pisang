@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Untuk Kamu ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- AUDIO -->
+<audio id="bgMusic" src="assets/music.mp3"></audio>
+<audio id="openSound" src="assets/open-book.mp3"></audio>
+<audio id="clickSound" src="assets/click.mp3"></audio>
+
+<!-- INTRO DARK -->
+<div id="intro"></div>
+
+<!-- MAIN -->
+<div id="scene" class="hidden">
+
+  <!-- BOOK CLOSED -->
+  <div id="book-closed">
+    <div class="cover">
+      <div class="heart">❤️</div>
+    </div>
+    <div class="next-btn" id="openBook">➡️</div>
+  </div>
+
+  <!-- BOOK OPEN -->
+  <div id="book-open" class="hidden">
+    <div class="page" id="page1"></div>
+    <div class="page hidden" id="page2"></div>
+    <div class="page hidden" id="page3"></div>
+
+    <div class="next-btn hidden" id="nextPage">➡️</div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

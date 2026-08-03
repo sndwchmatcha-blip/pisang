@@ -1,317 +1,184 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-        content="width=device-width,
-        initial-scale=1,
-        maximum-scale=1,
-        user-scalable=no,
-        viewport-fit=cover">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#080808">
     <title>Happy Birthday ❤️</title>
 
-    <meta name="theme-color" content="#080808">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-    <!--=========================
-        BACKGROUND
-    ==========================-->
+<div id="background">
 
-    <div id="bg">
+    <div id="backgroundGlow"></div>
 
-        <div id="bgGlow"></div>
+    <div id="heartContainer"></div>
 
-        <div id="heartContainer"></div>
+    <div id="dustContainer"></div>
 
-        <div id="dustContainer"></div>
+</div>
+
+<section id="intro">
+
+    <div class="intro-content">
+
+        <p class="intro-top">
+            Untuk Kekasihku
+        </p>
+
+        <h1 class="intro-name">
+            Anindita
+        </h1>
 
     </div>
 
+</section>
 
+<section id="envelopeScene">
 
-    <!--=========================
-            INTRO
-    ==========================-->
+    <div class="floorShadow"></div>
 
-    <section id="introScreen">
+    <div id="lightEffect"></div>
 
-        <div class="introWrapper">
+    <div id="envelope">
 
-            <p class="introSmall">
+        <div class="envelope-back"></div>
 
-                Untuk Kekasihku
+        <div class="paper-stack">
 
-            </p>
+            <div class="stack stack5"></div>
 
-            <h1 class="introName">
+            <div class="stack stack4"></div>
 
-                Anindita
+            <div class="stack stack3"></div>
 
-            </h1>
+            <div class="stack stack2"></div>
+
+            <div class="stack stack1"></div>
+
+        </div>
+
+        <div class="envelope-left"></div>
+
+        <div class="envelope-right"></div>
+
+        <div class="envelope-bottom"></div>
+
+        <div id="envelopeFlap"></div>
+
+    </div>
+
+    <button id="openButton">
+        OPEN
+    </button>
+
+</section>
+
+<main id="story">
+        <section class="paper" id="paper1">
+
+        <div class="paper-texture"></div>
+
+        <div class="paper-content">
+
+            <h2>Happy Birthday</h2>
+
+            <h3>20 Tahun ❤️</h3>
+
+            <div class="typing" id="typing1"></div>
 
         </div>
 
     </section>
 
+    <section class="paper photo-paper" id="photoPaper1">
 
+        <div class="photo-frame">
 
-    <!--=========================
-          ENVELOPE SCENE
-    ==========================-->
-
-    <section id="envelopeScene">
-
-        <div class="shadowFloor"></div>
-
-        <div id="lightBeam"></div>
-
-        <div id="envelope">
-
-            <div class="envBack"></div>
-
-            <div class="envPaperStack">
-
-                <div class="stack s5"></div>
-
-                <div class="stack s4"></div>
-
-                <div class="stack s3"></div>
-
-                <div class="stack s2"></div>
-
-                <div class="stack s1"></div>
-
-            </div>
-
-            <div class="envLeft"></div>
-
-            <div class="envRight"></div>
-
-            <div class="envBottom"></div>
-
-            <div class="envFlap"></div>
+            <img
+                src="assets/photo1.jpg"
+                alt="Photo 1"
+                id="photo1">
 
         </div>
 
-        <button id="openButton">
+    </section>
 
-            OPEN
+    <section class="paper" id="paper2">
 
-        </button>
+        <div class="paper-texture"></div>
+
+        <div class="paper-content">
+
+            <h2>Untuk Kamu</h2>
+
+            <div class="typing" id="typing2"></div>
+
+        </div>
 
     </section>
 
+    <section class="paper photo-paper" id="photoPaper2">
 
+        <div class="photo-frame">
 
-    <!--=========================
-          LETTER AREA
-    ==========================-->
+            <img
+                src="assets/photo2.jpg"
+                alt="Photo 2"
+                id="photo2">
 
-    <main id="letterScene">
-
-
-
-        <!-- LETTER 1 -->
-
-        <article
-            class="paper"
-            id="paper1">
-
-            <div class="paperTexture"></div>
-
-            <div class="paperInner">
-
-                <h2>
-
-                    Happy Birthday
-
-                </h2>
-
-                <h3>
-
-                    20 Tahun ❤️
-
-                </h3>
-
-                <div
-                    class="typingText"
-                    id="typing1">
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- PHOTO 1 -->
-
-        <article
-            class="paper photoPaper"
-            id="photoPaper1">
-
-            <div class="photoFrame">
-
-                <img
-                    src="assets/photo1.jpg"
-                    alt="Photo 1">
-
-            </div>
-
-        </article>
-
-
-
-        <!-- LETTER 2 -->
-
-        <article
-            class="paper"
-            id="paper2">
-
-            <div class="paperTexture"></div>
-
-            <div class="paperInner">
-
-                <h2>
-
-                    Untuk Kamu
-
-                </h2>
-
-                <div
-                    class="typingText"
-                    id="typing2">
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- PHOTO 2 -->
-
-        <article
-            class="paper photoPaper"
-            id="photoPaper2">
-
-            <div class="photoFrame">
-
-                <img
-                    src="assets/photo2.jpg"
-                    alt="Photo 2">
-
-            </div>
-
-        </article>
-
-
-
-        <!-- LETTER 3 -->
-
-        <article
-            class="paper"
-            id="paper3">
-
-            <div class="paperTexture"></div>
-
-            <div class="paperInner">
-
-                <h2>
-
-                    Terakhir...
-
-                </h2>
-
-                <div
-                    class="typingText"
-                    id="typing3">
-
-                </div>
-
-            </div>
-
-        </article>
-
-    </main>
-
-
-
-    <!--=========================
-            ENDING
-    ==========================-->
-
-    <section id="endingScene">
-
-        <div class="endingGlow"></div>
-
-        <h1>
-
-            I Love You
-
-        </h1>
-
-        <h2>
-
-            Anindita ❤️
-
-        </h2>
+        </div>
 
     </section>
 
+    <section class="paper" id="paper3">
 
+        <div class="paper-texture"></div>
 
-    <!--=========================
-        EFFECT CONTAINER
-    ==========================-->
+        <div class="paper-content">
 
-    <div id="sparkleContainer"></div>
+            <h2>Terakhir...</h2>
 
-    <div id="particleContainer"></div>
+            <div class="typing" id="typing3"></div>
 
+        </div>
 
+    </section>
 
-    <!--=========================
-            MUSIC
-    ==========================-->
+</main>
+<section id="ending">
 
-    <audio
-        id="bgm"
-        preload="auto">
+    <div class="ending-glow"></div>
 
-        <source
-            src="assets/music.mp3"
-            type="audio/mpeg">
+    <h1>I Love You</h1>
 
-    </audio>
+    <h2>Anindita ❤️</h2>
 
+</section>
 
+<div id="sparkleContainer"></div>
 
-    <script src="script.js"></script>
+<div id="particleContainer"></div>
+
+<audio
+    id="music"
+    preload="auto">
+
+    <source
+        src="assets/music.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+<script src="script.js"></script>
 
 </body>
-
-        </html>
-<!--=========================
-    
-    ==========================-->
+    </html>

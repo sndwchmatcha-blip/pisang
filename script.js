@@ -119,36 +119,6 @@ async function showPaper(paper){
         [
             {
                 opacity:0,
-                transform:"translate(-50%,-25%) scale(.82)"
-            },
-            {
-                opacity:1,
-                transform:"translate(-50%,-50%) scale(1)"
-            }
-        ],
-        {
-            duration:1100,
-            easing:"cubic-bezier(.22,.61,.36,1)",
-            fill:"forwards"
-        }
-    );
-
-    await sleep(1100);
-
-        }
-async function hidePaper(paper){
-
-    paper.animate(
-        [
-            {
-                opacity:1,async function showPaper(paper){
-
-    paper.classList.add("active");
-
-    paper.animate(
-        [
-            {
-                opacity:0,
                 transform:"translate(-50%,10%) scale(.72) rotate(-4deg)"
             },
             {
@@ -170,6 +140,13 @@ async function hidePaper(paper){
     await sleep(1400);
 
 }
+
+async function hidePaper(paper){
+
+    paper.animate(
+        [
+            {
+                opacity:1,
                 transform:"translate(-50%,-50%) rotate(0deg) scale(1)"
             },
             {
@@ -502,11 +479,24 @@ openButton.addEventListener("click",async()=>{
     );
 
     await sleep(1700);
-    await sleep(1700);
 
-    envelope.style.transition="opacity .8s ease";
-
-    envelope.style.opacity="0";
+    envelope.animate(
+    [
+        {
+            opacity:1,
+            transform:"translateY(0) scale(1)"
+        },
+        {
+            opacity:0,
+            transform:"translateY(-45px) scale(.9)"
+        }
+    ],
+    {
+        duration:800,
+        easing:"ease-in-out",
+        fill:"forwards"
+    }
+);
 
     await sleep(800);
 

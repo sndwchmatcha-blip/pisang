@@ -194,7 +194,7 @@ async function showPhoto(paper){
 
 async function hidePhoto(paper){
 
-    await sleep(2000);
+    await sleep(5000);
 
     paper.animate(
         [
@@ -456,26 +456,13 @@ openButton.addEventListener("click",async()=>{
     );
 
     await sleep(1700);
+    await sleep(1700);
 
-    envelope.animate(
-        [
-            {
-                opacity:1,
-                transform:"translateY(0px) scale(1)"
-            },
-            {
-                opacity:0,
-                transform:"translateY(-45px) scale(.88)"
-            }
-        ],
-        {
-            duration:1000,
-            easing:"ease-in-out",
-            fill:"forwards"
-        }
-    );
+    envelope.style.transition="opacity .8s ease";
 
-    await sleep(1000);
+    envelope.style.opacity="0";
+
+    await sleep(800);
 
     envelopeScene.classList.add("hide");
 

@@ -2,21 +2,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
   background: black;
   overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* INTRO DARK */
+/* INTRO (GELAP TOTAL) */
 #intro {
   position: fixed;
   width: 100%;
   height: 100%;
   background: black;
-  z-index: 10;
+  z-index: 999;
+  transition: 2s;
 }
 
 /* SCENE */
@@ -26,8 +27,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: black;
-  transition: 1s;
+  background: radial-gradient(circle, #111 0%, #000 100%);
+  transition: 2s;
 }
 
 .hidden {
@@ -36,54 +37,57 @@ body {
 
 /* BOOK CLOSED */
 #book-closed {
-  position: relative;
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
 }
 
+/* COVER */
 .cover {
-  width: 220px;
-  height: 300px;
-  background: #7a0c0c; /* moonlight red */
-  border-radius: 10px;
-  box-shadow: 0 0 40px rgba(255, 0, 0, 0.3);
+  width: 240px;
+  height: 320px;
+  background: linear-gradient(145deg, #8b0000, #3b0000);
+  border-radius: 12px;
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.8),
+    inset 0 0 20px rgba(255,0,0,0.3);
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.8s;
+  transform: perspective(800px) rotateY(0deg);
+  transition: 1s;
 }
 
-/* LOVE GLOW */
+/* HEART GLOW */
 .heart {
-  font-size: 50px;
-  animation: glow 2s infinite;
+  font-size: 55px;
+  animation: pulse 2s infinite;
 }
 
-@keyframes glow {
-  0% { text-shadow: 0 0 5px #fff; }
-  50% { text-shadow: 0 0 25px red; }
-  100% { text-shadow: 0 0 5px #fff; }
+@keyframes pulse {
+  0% { transform: scale(1); text-shadow: 0 0 10px red; }
+  50% { transform: scale(1.2); text-shadow: 0 0 30px red; }
+  100% { transform: scale(1); text-shadow: 0 0 10px red; }
 }
 
 /* BUTTON */
 .next-btn {
-  font-size: 30px;
-  cursor: pointer;
+  font-size: 32px;
   color: white;
+  cursor: pointer;
   transition: 0.3s;
 }
 
 .next-btn:hover {
-  transform: scale(1.3);
+  transform: translateX(8px) scale(1.2);
 }
 
-/* BOOK OPEN */
+/* BOOK OPEN AREA */
 #book-open {
   position: relative;
-  width: 600px;
-  height: 400px;
-  perspective: 1000px;
+  width: 650px;
+  height: 420px;
+  perspective: 1500px;
 }
 
 /* PAGE */
@@ -91,68 +95,95 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: white;
-  border-radius: 8px;
-  padding: 40px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  background: #fff;
+  border-radius: 10px;
+  padding: 50px;
+  box-shadow: 
+    0 25px 80px rgba(0,0,0,0.8);
   background-image: repeating-linear-gradient(
     white,
-    white 28px,
-    #eaeaea 29px
+    white 30px,
+    #ececec 31px
   );
-  overflow: hidden;
+  transform-origin: left;
+  animation: pageOpen 1s ease forwards;
 }
 
-/* PAGE 3 (ABU ABU) */
+/* PAGE 3 */
 #page3 {
-  background: #d9d9d9;
+  background: #d6d6d6;
 }
 
-/* TEXT STYLE */
+/* PAGE OPEN ANIMATION */
+@keyframes pageOpen {
+  from {
+    transform: rotateY(-90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+/* HANDWRITING */
 .handwriting {
-  font-family: 'Brush Script MT', cursive;
-  font-size: 22px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 26px;
   color: #222;
   line-height: 1.8;
   opacity: 0;
 }
 
-/* HEART IMAGE */
+/* LOVE IMAGE */
 .love-img {
-  width: 200px;
-  height: 200px;
-  margin-top: 20px;
+  width: 220px;
+  height: 220px;
+  margin-top: 30px;
   object-fit: cover;
-  clip-path: path("M100 180 L20 100 A40 40 0 1 1 100 40 A40 40 0 1 1 180 100 Z");
+  clip-path: path("M110 200 C20 120, 20 40, 110 80 C200 40, 200 120, 110 200 Z");
   opacity: 0;
+  transform: scale(0.8);
 }
 
-/* FADE IN EFFECT */
-.show {
-  animation: fadeIn 1s forwards;
+/* SHOW EFFECT */
+.show-text {
+  animation: fadeText 2s forwards;
 }
 
-@keyframes fadeIn {
+@keyframes fadeText {
   to {
     opacity: 1;
   }
 }
 
-/* LIGHT EFFECT */
+.show-img {
+  animation: fadeImg 1.5s forwards;
+}
+
+@keyframes fadeImg {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* LIGHT ON */
 .light-on {
-  animation: lightOn 1s forwards;
+  animation: lightOn 2s forwards;
 }
 
 @keyframes lightOn {
   from { background: black; }
-  to { background: #111; }
+  to { background: radial-gradient(circle, #111, #000); }
 }
 
+/* LIGHT OFF */
 .light-off {
-  animation: lightOff 1s forwards;
+  animation: lightOff 2s forwards;
 }
 
 @keyframes lightOff {
-  from { background: #111; }
+  from { background: radial-gradient(circle, #111, #000); }
   to { background: black; }
 }

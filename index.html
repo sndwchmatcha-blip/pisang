@@ -6,9 +6,24 @@
     <meta charset="UTF-8">
 
     <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        content="width=device-width,
+        initial-scale=1,
+        maximum-scale=1,
+        user-scalable=no,
+        viewport-fit=cover">
 
     <title>Happy Birthday ❤️</title>
+
+    <meta name="theme-color" content="#080808">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 
@@ -16,23 +31,41 @@
 
 <body>
 
-    <!-- Background -->
+    <!--=========================
+        BACKGROUND
+    ==========================-->
 
-    <div id="background-hearts"></div>
+    <div id="bg">
 
-    <div class="bg-glow"></div>
+        <div id="bgGlow"></div>
+
+        <div id="heartContainer"></div>
+
+        <div id="dustContainer"></div>
+
+    </div>
 
 
 
-    <!-- INTRO -->
+    <!--=========================
+            INTRO
+    ==========================-->
 
-    <section id="intro">
+    <section id="introScreen">
 
-        <div class="intro-text">
+        <div class="introWrapper">
 
-            <h2>Untuk Kekasihku</h2>
+            <p class="introSmall">
 
-            <h1>Anindita</h1>
+                Untuk Kekasihku
+
+            </p>
+
+            <h1 class="introName">
+
+                Anindita
+
+            </h1>
 
         </div>
 
@@ -40,39 +73,45 @@
 
 
 
-    <!-- ENVELOPE -->
+    <!--=========================
+          ENVELOPE SCENE
+    ==========================-->
 
-    <section id="envelopeScene" class="hidden">
+    <section id="envelopeScene">
 
-        <div class="envelope-wrapper">
+        <div class="shadowFloor"></div>
 
-            <div id="light"></div>
+        <div id="lightBeam"></div>
 
-            <div id="envelope">
+        <div id="envelope">
 
-                <div class="back"></div>
+            <div class="envBack"></div>
 
-                <div class="letter-stack">
+            <div class="envPaperStack">
 
-                    <div class="paper p1"></div>
+                <div class="stack s5"></div>
 
-                    <div class="paper p2"></div>
+                <div class="stack s4"></div>
 
-                    <div class="paper p3"></div>
+                <div class="stack s3"></div>
 
-                    <div class="paper p4"></div>
+                <div class="stack s2"></div>
 
-                    <div class="paper p5"></div>
-
-                </div>
-
-                <div class="flap"></div>
+                <div class="stack s1"></div>
 
             </div>
 
+            <div class="envLeft"></div>
+
+            <div class="envRight"></div>
+
+            <div class="envBottom"></div>
+
+            <div class="envFlap"></div>
+
         </div>
 
-        <button id="openBtn">
+        <button id="openButton">
 
             OPEN
 
@@ -82,34 +121,197 @@
 
 
 
-    <!-- MUSIC -->
+    <!--=========================
+          LETTER AREA
+    ==========================-->
 
-    <audio id="music" preload="auto">
+    <main id="letterScene">
 
-        <source src="assets/music.mp3" type="audio/mpeg">
+
+
+        <!-- LETTER 1 -->
+
+        <article
+            class="paper"
+            id="paper1">
+
+            <div class="paperTexture"></div>
+
+            <div class="paperInner">
+
+                <h2>
+
+                    Happy Birthday
+
+                </h2>
+
+                <h3>
+
+                    20 Tahun ❤️
+
+                </h3>
+
+                <div
+                    class="typingText"
+                    id="typing1">
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PHOTO 1 -->
+
+        <article
+            class="paper photoPaper"
+            id="photoPaper1">
+
+            <div class="photoFrame">
+
+                <img
+                    src="assets/photo1.jpg"
+                    alt="Photo 1">
+
+            </div>
+
+        </article>
+
+
+
+        <!-- LETTER 2 -->
+
+        <article
+            class="paper"
+            id="paper2">
+
+            <div class="paperTexture"></div>
+
+            <div class="paperInner">
+
+                <h2>
+
+                    Untuk Kamu
+
+                </h2>
+
+                <div
+                    class="typingText"
+                    id="typing2">
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PHOTO 2 -->
+
+        <article
+            class="paper photoPaper"
+            id="photoPaper2">
+
+            <div class="photoFrame">
+
+                <img
+                    src="assets/photo2.jpg"
+                    alt="Photo 2">
+
+            </div>
+
+        </article>
+
+
+
+        <!-- LETTER 3 -->
+
+        <article
+            class="paper"
+            id="paper3">
+
+            <div class="paperTexture"></div>
+
+            <div class="paperInner">
+
+                <h2>
+
+                    Terakhir...
+
+                </h2>
+
+                <div
+                    class="typingText"
+                    id="typing3">
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </main>
+
+
+
+    <!--=========================
+            ENDING
+    ==========================-->
+
+    <section id="endingScene">
+
+        <div class="endingGlow"></div>
+
+        <h1>
+
+            I Love You
+
+        </h1>
+
+        <h2>
+
+            Anindita ❤️
+
+        </h2>
+
+    </section>
+
+
+
+    <!--=========================
+        EFFECT CONTAINER
+    ==========================-->
+
+    <div id="sparkleContainer"></div>
+
+    <div id="particleContainer"></div>
+
+
+
+    <!--=========================
+            MUSIC
+    ==========================-->
+
+    <audio
+        id="bgm"
+        preload="auto">
+
+        <source
+            src="assets/music.mp3"
+            type="audio/mpeg">
 
     </audio>
 
 
 
-    <!-- PAPERS -->
+    <script src="script.js"></script>
 
-    <section id="papers" class="hidden">
+</body>
 
-
-
-        <!-- PAPER 1 -->
-
-        <div class="paper-page" id="paper1">
-
-            <div class="paper-content">
-
-                <h2>Happy Birthday</h2>
-
-                <h3>20 Tahun, Sayang ❤️</h3>
-
-                <p id="text1"></p>
-
-            </div>
-
-        </div>
+        </html>
+<!--=========================
+    
+    ==========================-->

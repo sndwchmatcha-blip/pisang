@@ -1,45 +1,115 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>Untuk Kamu ❤️</title>
-  <link rel="stylesheet" href="style.css">
 
-  <!-- FONT HANDWRITING PREMIUM -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Happy Birthday ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-<!-- AUDIO -->
-<audio id="bgMusic" src="assets/music.mp3"></audio>
-<audio id="openSound" src="assets/open-book.mp3"></audio>
-<audio id="clickSound" src="assets/click.mp3"></audio>
+    <!-- Background -->
 
-<!-- INTRO -->
-<div id="intro"></div>
+    <div id="background-hearts"></div>
 
-<!-- SCENE -->
-<div id="scene" class="hidden">
+    <div class="bg-glow"></div>
 
-  <!-- CLOSED BOOK -->
-  <div id="book-closed">
-    <div class="cover">
-      <div class="heart">❤️</div>
-    </div>
-    <div class="next-btn" id="openBook">➜</div>
-  </div>
 
-  <!-- OPEN BOOK -->
-  <div id="book-open" class="hidden">
-    <div class="page" id="page1"></div>
-    <div class="page hidden" id="page2"></div>
-    <div class="page hidden" id="page3"></div>
 
-    <div class="next-btn hidden" id="nextPage">➜</div>
-  </div>
+    <!-- INTRO -->
 
-</div>
+    <section id="intro">
 
-<script src="script.js"></script>
-</body>
-</html>
+        <div class="intro-text">
+
+            <h2>Untuk Kekasihku</h2>
+
+            <h1>Anindita</h1>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ENVELOPE -->
+
+    <section id="envelopeScene" class="hidden">
+
+        <div class="envelope-wrapper">
+
+            <div id="light"></div>
+
+            <div id="envelope">
+
+                <div class="back"></div>
+
+                <div class="letter-stack">
+
+                    <div class="paper p1"></div>
+
+                    <div class="paper p2"></div>
+
+                    <div class="paper p3"></div>
+
+                    <div class="paper p4"></div>
+
+                    <div class="paper p5"></div>
+
+                </div>
+
+                <div class="flap"></div>
+
+            </div>
+
+        </div>
+
+        <button id="openBtn">
+
+            OPEN
+
+        </button>
+
+    </section>
+
+
+
+    <!-- MUSIC -->
+
+    <audio id="music" preload="auto">
+
+        <source src="assets/music.mp3" type="audio/mpeg">
+
+    </audio>
+
+
+
+    <!-- PAPERS -->
+
+    <section id="papers" class="hidden">
+
+
+
+        <!-- PAPER 1 -->
+
+        <div class="paper-page" id="paper1">
+
+            <div class="paper-content">
+
+                <h2>Happy Birthday</h2>
+
+                <h3>20 Tahun, Sayang ❤️</h3>
+
+                <p id="text1"></p>
+
+            </div>
+
+        </div>

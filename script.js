@@ -18,8 +18,8 @@ const typing1=document.getElementById("typing1");
 const typing2=document.getElementById("typing2");
 const typing3=document.getElementById("typing3");
 
-const photo1=document.getElementById("photo1");
-const photo2=document.getElementById("photo2");
+const photo1=document.getElementById("foto1");
+const photo2=document.getElementById("foto2");
 
 const ending=document.getElementById("ending");
 
@@ -97,7 +97,15 @@ async function typeWriter(target,text,speed=38){
 
         target.appendChild(cursor);
 
-        container.scrollTop=container.scrollHeight;
+        const maxScroll = container.scrollHeight - container.clientHeight;
+
+if(maxScroll > 0){
+
+    const progress = (i + 1) / text.length;
+
+    container.scrollTop = maxScroll * progress;
+
+}
 
         if(text[i]===","||text[i]==="."||text[i]==="\n"){
 
@@ -110,10 +118,6 @@ async function typeWriter(target,text,speed=38){
         }
 
     }
-
-    cursor.remove();
-
-}
 
     cursor.remove();
 

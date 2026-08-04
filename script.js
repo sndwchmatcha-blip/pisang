@@ -24,6 +24,13 @@ const foto2=document.getElementById("foto2");
 const ending=document.getElementById("ending");
 
 const music=document.getElementById("music");
+music.addEventListener("ended",()=>{
+
+    music.currentTime=21;
+
+    music.play();
+
+});
 
 const heartContainer=document.getElementById("heartContainer");
 const dustContainer=document.getElementById("dustContainer");
@@ -89,7 +96,7 @@ async function typeWriter(target,text,speed=38){
 
     cursor.className="cursor";
 
-    const container=target.parentElement;
+    const container = target;
 
     for(let i=0;i<text.length;i++){
 
@@ -97,15 +104,9 @@ async function typeWriter(target,text,speed=38){
 
         target.appendChild(cursor);
 
-        const maxScroll = container.scrollHeight - container.clientHeight;
-
-if(maxScroll > 0){
-
-    const progress = (i + 1) / text.length;
-
-    container.scrollTop = maxScroll * progress;
-
-}
+        requestAnimationFrame(() => {
+    target.scrollTop = target.scrollHeight;
+});
 
         if(text[i]===","||text[i]==="."||text[i]==="\n"){
 

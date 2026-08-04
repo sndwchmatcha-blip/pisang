@@ -18,8 +18,8 @@ const typing1=document.getElementById("typing1");
 const typing2=document.getElementById("typing2");
 const typing3=document.getElementById("typing3");
 
-const photo1=document.getElementById("foto1");
-const photo2=document.getElementById("foto2");
+const foto1=document.getElementById("foto1");
+const foto2=document.getElementById("foto2");
 
 const ending=document.getElementById("ending");
 
